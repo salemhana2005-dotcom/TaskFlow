@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Premium Task Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">T</div>
+            <div>
+                <h2>TaskFlow</h2>
+                <span>PRODUCTIVITY SPACE</span>
+            </div>
+        </div>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="navigation">
+            <a href="#dashboard" class="nav-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="#tasks" class="nav-link">
+                <span>☷</span> My Tasks
+            </a>
+
+            <a href="#progress" class="nav-link">
+                <span>◷</span> My Progress
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-decoration">
+                <span class="decoration-icon">✦</span>
+                <h3>Stay focused.</h3>
+                <p>Small steps lead to remarkable results.</p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="footer-dot"></span>
+                Your personal workspace
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">WORKSPACE / OVERVIEW</p>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="date-box">
+                    <span>◷</span>
+                    <span id="currentDate">Today</span>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">H</div>
+                    <div>
+                        <strong>My Workspace</strong>
+                        <span>Personal Account</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome-section" id="dashboard">
+
+            <div>
+                <span class="eyebrow">YOUR DAILY OVERVIEW</span>
+
+                <h2>Make today <span>count.</span></h2>
+
+                <p>
+                    Stay organized, prioritize what matters,
+                    and make progress every day.
+                </p>
+            </div>
+
+            <div class="welcome-decoration">
+                <div class="decoration-circle circle-one"></div>
+                <div class="decoration-circle circle-two"></div>
+                <div class="welcome-star">✦</div>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Tasks</span>
+                    <div class="stat-icon navy-icon">▤</div>
+                </div>
+
+                <h3 id="total">0</h3>
+                <p>All your tasks</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>To Do</span>
+                    <div class="stat-icon gold-icon">◷</div>
+                </div>
+
+                <h3 id="pending">0</h3>
+                <p>Waiting to be done</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Completed</span>
+                    <div class="stat-icon green-icon">✓</div>
+                </div>
+
+                <h3 id="completed">0</h3>
+                <p>Successfully finished</p>
+            </div>
+
+        </section>
+
+
+        <!-- TASK SECTION -->
+        <section class="task-section" id="tasks">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">STAY ON TRACK</span>
+                    <h2>My Tasks</h2>
+                    <p>Manage your daily activities in one place.</p>
+                </div>
+
+                <span class="task-counter" id="taskCounter">
+                    0 TASKS
+                </span>
+            </div>
+
+
+            <!-- ADD TASK FORM -->
+            <form id="taskForm" class="task-form">
+
+                <div class="input-group">
+                    <label for="taskInput">TASK DESCRIPTION</label>
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="What needs to be done?"
+                        maxlength="120"
+                        required
+                    >
+                </div>
+
+                <div class="input-group priority-input">
+                    <label for="priorityInput">PRIORITY</label>
+
+                    <select id="priorityInput">
+                        <option value="High">High</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="add-button">
+                    <span>＋</span> Add Task
+                </button>
+
+            </form>
+
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="task-toolbar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search your tasks..."
+                    >
+                </div>
+
+                <select id="statusFilter" class="filter-select">
+                    <option value="all">All Status</option>
+                    <option value="active">To Do</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <select id="priorityFilter" class="filter-select">
+                    <option value="all">All Priorities</option>
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+
+            </div>
+
+
+            <!-- TASK LIST -->
+            <div id="taskList" class="task-list"></div>
+
+        </section>
+
+
+        <!-- PROGRESS SECTION -->
+        <section class="progress-section" id="progress">
+
+            <div class="progress-heading">
+                <div>
+                    <span class="eyebrow">YOUR ACHIEVEMENTS</span>
+                    <h2>Overall Progress</h2>
+                </div>
+
+                <strong id="percent">0%</strong>
+            </div>
+
+            <div class="progress-track">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+
+            <div class="progress-footer">
+                <span id="progressMessage">Let's get started!</span>
+                <span id="progressCount">0 of 0 tasks completed</span>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <span>TaskFlow © 2026</span>
+            <span>Designed for productivity <strong>✦</strong></span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- EDIT TASK MODAL -->
+<div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-heading">
+            <div>
+                <span class="eyebrow">TASK MANAGEMENT</span>
+                <h2>Edit Task</h2>
+            </div>
+
+            <button type="button" id="closeModal" class="close-modal">
+                ×
+            </button>
+        </div>
+
+        <form id="editForm">
+
+            <input type="hidden" id="editTaskId">
+
+            <div class="input-group">
+                <label for="editTaskInput">TASK DESCRIPTION</label>
+
+                <input
+                    type="text"
+                    id="editTaskInput"
+                    maxlength="120"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="editPriorityInput">PRIORITY</label>
+
+                <select id="editPriorityInput">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancelEdit" class="cancel-button">
+                    Cancel
+                </button>
+
+                <button type="submit" class="add-button">
+                    Save Changes
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
